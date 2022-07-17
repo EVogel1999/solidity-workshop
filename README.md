@@ -42,6 +42,49 @@ contract Job {
 
 For the actual code in the contract refer to [contracts/Job.sol](./contracts/Job.sol).
 
+### Parameter Structure
+
+Parameters use the following format:
+
+```solidity
+TYPE VISIBILITY_MODIFIER NAME;
+
+TYPE VISIBILITY_MODIFIER NAME = INSTANTIATION;
+```
+
+You can define your own types, these are known as ```structs```.  Additionally, you can also define ```enums``` and ```events```.
+
+### Function Structure
+
+Contract functions follow the following format:
+
+```solidity
+function NAME(LIST, OF, PARAMETERS) VISIBILITY_MODIFIER LIST_OF_MODIFIERS returns (TYPE) {
+  // TODO: Write code
+}
+
+function NAME() VISIBILITY_MODIFIER {
+  // TODO: Write code
+}
+```
+
+Every function needs a name and visibility modifier but parameters, list of other modifiers (i.e. custom) and return type are optional.
+
+### Contract Modifiers
+
+There are four types of visibility modifiers for functions: ```internal``` (only self), ```external``` (only outside entities), ```public``` (any outside entities or self), ```private``` (only self and inherited contracts).
+
+Other function modifiers include ```payable``` (smart contract can recieve tokens), ```view``` (only reads contract variables, no gas fee), ```pure``` (doesn't read or modify contract variables, no gas fee).
+
+You can also define your own function modifiers using the following boilerplate:
+
+```solidity
+modifier NAME() {
+  // TODO: Write code
+  _;
+}
+```
+
 ## Create Run Script
 
 To run, test, and deploy solidity contracts you need to use ```javascript``` or ```typescript```.  After you create a ```run.js``` file in the scripts folder, you need to "deploy" your smart contract to a local ethereum node on your computer.  Running a local ethereum node means that it isn't connected to the ethereum blockchain (mainnet or testnet).  To do this, you have to add the following lines of code to a function:
